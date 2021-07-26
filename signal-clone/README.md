@@ -23,6 +23,7 @@ Link for deployed application:
 * yarn add @react-native-firebase/app
 * yarn add @react-navigation/native
 * expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+* yarn add @react-navigation/stack
 * yarn add @material-ui/core
 * yarn add @material-ui/icons
 * npm install -g firebase-tools
