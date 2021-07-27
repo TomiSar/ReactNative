@@ -1,5 +1,6 @@
 # Deployed application
-Link for deployed application: 
+* Project at expo by scanning the QR code  
+Project page: https://expo.io/@senseiwithblackbelt/signal-clone
 
 ## Functionality of Signal clone application
 * Visitors can register using Full name, Email, password and image url (optional)
