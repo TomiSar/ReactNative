@@ -20,10 +20,12 @@ Link for deployed application:
 * Firebase Hosting
 
 ## Installation of needed Packages for application uging npm or yarn
-* yarn add @react-native-firebase/app
 * yarn add @react-navigation/native
 * expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 * yarn add @react-navigation/stack
+* yarn add react-native-elements
+* expo install firebase
+
 * yarn add @material-ui/core
 * yarn add @material-ui/icons
 * npm install -g firebase-tools
