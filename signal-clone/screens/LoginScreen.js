@@ -28,20 +28,17 @@ const LoginScreen = ({ navigation }) => {
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <StatusBar style="light" />
-
       <Image
         source={{
           uri: 'https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png',
-        }}
-        style={styles.image}
-      />
+        }} style={styles.image} />
 
       <View style={styles.inputContainer}>
         <Input placeholder="Email" autoFocus type="email" value={email} onChangeText={(text) => setEmail(text)} />
         <Input placeholder="Password" secureTextEntry type="password" value={password} onChangeText={(text) => setPassword(text)} onSubmitEditing={signInUser} />
       </View>
 
-      <Button containerStyle={styles.button} title="Login" onPress={signInUser} />
+      <Button disabled={!email || !password} containerStyle={styles.button} title="Login" onPress={signInUser} />
       <Button containerStyle={styles.button} title="Register" type="outline" onPress={() => navigation.navigate('Register')} />
       <View style={{ height: 100 }} />
     </KeyboardAvoidingView>

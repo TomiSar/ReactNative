@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import CustomListItem from '../components/CustomListItem';
 import { AntDesign, SimpleLineIcons, Entypo } from '@expo/vector-icons';
@@ -19,16 +19,17 @@ const HomeScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    //setLoading(true);
+    setLoading(true);
     const unsubscribe = db.collection('chats').onSnapshot((snapshot) => {
       setChats(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
     });
+    setLoading(false);
+
     return unsubscribe;
-    //setLoading(false);
   }, []);
 
   useLayoutEffect(() => {
-    //setLoading(true);
+    setLoading(true);
     navigation.setOptions({
       title: 'Signal',
       headerStyle: { backgroundColor: '#2C6EBD' },
@@ -36,7 +37,6 @@ const HomeScreen = ({ navigation }) => {
       headerTintColor: 'white',
       headerLeft: () => (
         <View style={{ marginLeft: 20 }}>
-            {/* onPress={signOutUser} */}
           <TouchableOpacity activeOpacity={0.6} >
             <Avatar style={{ height: 50, width: 50 }} rounded source={{ uri: auth?.currentUser?.photoURL }} />
           </TouchableOpacity>
@@ -56,7 +56,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
       ),
     });
-    //setLoading(false);
+    setLoading(false);
   }, [navigation]);
 
   const enterChat = (id, chatName) => {
@@ -67,6 +67,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
+    loading ? <ActivityIndicator size="large" color="gray" style={{ flex: 0.7 }} /> :
     <SafeAreaView>
         <StatusBar style="light" />
         <ScrollView style={styles.container}>

@@ -1,6 +1,15 @@
 # Deployed application
 Link for deployed application: 
 
+## Functionality of Signal clone application
+* Visitors can register using Full name, Email, password and image url (optional)
+* After login screen user is redirected to application page with chat rooms.
+* User can create new chat by clicking pencil icon on header.
+* User is redirected to Add chat room page. User can create new chat with name.
+* On Main page every latest message of the chat room with Avatar is shown.
+* By clicking the desired chat room user can join chat and send messages.
+* User can logout from by clicking the button on upper right corner of Main page. 
+
 ## ReactNative LinkedIn clone application
 * This is a clone of Signal chat application
 * Need to login first by google to send messages
@@ -13,8 +22,7 @@ Link for deployed application:
 * CSS
 * JavaScript
 * ES6
-* Redux Toolkit
-* Google login
+* Email login functionality
 * Firebase Authentication
 * Firestore Database
 * Firebase Hosting
@@ -25,7 +33,4 @@ Link for deployed application:
 * yarn add @react-navigation/stack
 * yarn add react-native-elements
 * expo install firebase
-
-* yarn add @material-ui/core
-* yarn add @material-ui/icons
 * npm install -g firebase-tools

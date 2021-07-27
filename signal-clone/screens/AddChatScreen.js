@@ -5,7 +5,7 @@ import { Icon, Input, Button } from 'react-native-elements';
 import { db } from '../firebase';
 
 const AddChatScreen = ({ navigation }) => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -29,7 +29,7 @@ const AddChatScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Input placeholder="Enter a chat name" value={input} onChangeText={(text) => setInput(text)}
         onSubmitEditing={createChat} leftIcon={<Icon name="wechat" type="antdesign" size={24} color="black" /> } />
-      <Button title="Create Chat" onPress={createChat}/>
+      <Button disabled={!input} title="Create new Chat" onPress={createChat}/>
     </View>
   );
 };

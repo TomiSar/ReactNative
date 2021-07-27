@@ -8,7 +8,7 @@ const RegisterScreen = ({ navigation }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [profileImage, setProfileImage] = useState(""); //https://censur.es/wp-content/uploads/2019/03/default-avatar.png
+    const [profileImage, setProfileImage] = useState("");
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -37,7 +37,7 @@ const RegisterScreen = ({ navigation }) => {
           <Input placeholder="Profile picture URL (optional)" type="" value={profileImage}onChangeText={text => setProfileImage(text)} onSubmitEditing={registerToApp} />
       </View>
 
-      <Button containerStyle={styles.button} title="Register" onPress={registerToApp}/>
+      <Button disabled={!name || !email || !password} containerStyle={styles.button} title="Register" onPress={registerToApp}/>
       <Button containerStyle={styles.button} title="Login" type="outline" onPress={() => navigation.navigate("Login")} />
       
       <View style={{ height: 100 }} />
