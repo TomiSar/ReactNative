@@ -3,8 +3,9 @@ import { TouchableOpacity } from 'react-native';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import CustomListItem from '../components/CustomListItem';
-import { AntDesign, SimpleLineIcons } from '@expo/vector-icons';
+import { AntDesign, SimpleLineIcons, Entypo } from '@expo/vector-icons';
 import { auth, db } from '../firebase';
+import { StatusBar } from 'expo-status-bar';
 
 //HotKey rnefs => React Native functional export with Stylesheet
 const HomeScreen = ({ navigation }) => {
@@ -31,32 +32,26 @@ const HomeScreen = ({ navigation }) => {
     navigation.setOptions({
       title: 'Signal',
       headerStyle: { backgroundColor: '#2C6EBD' },
-      headerTitleStyle: { fontSize: 20, fontWeight: 'bold', color: 'white' },
+      headerTitleStyle: { fontSize: 26, fontWeight: 'bold', color: 'white' },
       headerTintColor: 'white',
       headerLeft: () => (
         <View style={{ marginLeft: 20 }}>
-          <TouchableOpacity activeOpacity={0.6} onPress={signOutUser}>
-            <Avatar rounded source={{ uri: auth?.currentUser?.photoURL }} />
+            {/* onPress={signOutUser} */}
+          <TouchableOpacity activeOpacity={0.6} >
+            <Avatar style={{ height: 50, width: 50 }} rounded source={{ uri: auth?.currentUser?.photoURL }} />
           </TouchableOpacity>
         </View>
       ),
       headerRight: () => (
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: 70,
-            marginRight: 20,
-          }}
-        >
+        <View style={{ flexDirection: "row", justifyContent: "space-between", width: 100, marginRight: 15 }} >
           <TouchableOpacity activeOpacity={0.6}>
             <AntDesign name="camerao" size={24} color="white" />
           </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.6}
-            onPress={() => navigation.navigate('AddChat')}
-          >
+          <TouchableOpacity activeOpacity={0.6} onPress={() => navigation.navigate('AddChat')}>
             <SimpleLineIcons name="pencil" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.6} >
+              <Entypo name="log-out" size={24} color="white" onPress={signOutUser}/>
           </TouchableOpacity>
         </View>
       ),
@@ -73,11 +68,12 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={styles.container}>
-        { chats.map(({ id, data: {chatName}}) => (
+        <StatusBar style="light" />
+        <ScrollView style={styles.container}>
+            { chats.map(({ id, data: {chatName}}) => (
             <CustomListItem  key={id} id={id} chatName={chatName} enterChat={enterChat}/>
-        ))} 
-      </ScrollView>
+            ))} 
+        </ScrollView>
     </SafeAreaView>
   );
 };
