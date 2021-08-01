@@ -28,14 +28,15 @@
 ### Documentation used in the project
 https://redux-toolkit.js.org/tutorials/quick-start (Redux)
 https://github.com/jaredh159/tailwind-react-native-classnames (Tailwind CSS)
+https://reactnative.dev/docs/flatlist (FlatList)
 
 ## Installation of needed Packages for application uging npm or yarn
 * yarn add @reduxjs/toolkit
 * yarn add react-redux
 * yarn add tailwind-react-native-classnames
+* yarn add react-native-elements
 * yarn add @react-navigation/native
 * expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 * yarn add @react-navigation/stack
-* yarn add react-native-elements
 * expo install firebase
 * npm install -g firebase-tools

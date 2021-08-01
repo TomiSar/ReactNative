@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
+import NavOptions from '../components/NavOptions';
 
 // HotKey rnefs => React Native functional export with Stylesheet
 const HomeScreen = () => {
@@ -13,6 +14,7 @@ const HomeScreen = () => {
                 source={{
                     uri: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png'
                 }}/>
+                <NavOptions />
             </View>
         </SafeAreaView>
     )
