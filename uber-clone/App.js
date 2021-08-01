@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-
-// 1) Set up Redux
+import { store } from './store';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>UBER clone application</Text>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Text>UBER clone application</Text>
+      </View>
+    </Provider>
   );
 }
 
