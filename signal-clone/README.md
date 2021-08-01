@@ -11,7 +11,7 @@ Project page: https://expo.io/@senseiwithblackbelt/signal-clone
 * By clicking the desired chat room user can join chat and send messages.
 * User can logout from by clicking the button on upper right corner of Main page. 
 
-## ReactNative LinkedIn clone application
+## ReactNative Signal clone application
 * This is a clone of Signal chat application
 * Need to login first by google to send messages
 * Simple design of Signal
