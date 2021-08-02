@@ -29,12 +29,16 @@
 https://redux-toolkit.js.org/tutorials/quick-start (Redux)
 https://github.com/jaredh159/tailwind-react-native-classnames (Tailwind CSS)
 https://reactnative.dev/docs/flatlist (FlatList)
+https://reactnavigation.org/docs/hello-react-navigation (NavigationContainer, createStackNavigator)
+https://reactnavigation.org/docs/use-navigation-state/ (useNavigation)
 
 ## Installation of needed Packages for application uging npm or yarn
 * yarn add @reduxjs/toolkit
 * yarn add react-redux
 * yarn add tailwind-react-native-classnames
 * yarn add react-native-elements
+* yarn add react-native-vector-icons
+* yarn add react-native-safe-area-context
 * yarn add @react-navigation/native
 * expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
 * yarn add @react-navigation/stack
