@@ -6,12 +6,12 @@ import { auth } from '../firebase';
 
 // navigation.navigate prop navigates to Register screen if Register button is pressed
 const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
-        console.log('Logged in as:', authUser);
+      // console.log('Logged in as:', authUser);
       if (authUser) {
         navigation.replace('Home');
       }
@@ -21,8 +21,9 @@ const LoginScreen = ({ navigation }) => {
   }, []);
 
   const signInUser = () => {
-      auth.signInWithEmailAndPassword(email, password)
-      .catch(error => alert(error));
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error));
   };
 
   return (
@@ -31,15 +32,40 @@ const LoginScreen = ({ navigation }) => {
       <Image
         source={{
           uri: 'https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png',
-        }} style={styles.image} />
+        }}
+        style={styles.image}
+      />
 
       <View style={styles.inputContainer}>
-        <Input placeholder="Email" autoFocus type="email" value={email} onChangeText={(text) => setEmail(text)} />
-        <Input placeholder="Password" secureTextEntry type="password" value={password} onChangeText={(text) => setPassword(text)} onSubmitEditing={signInUser} />
+        <Input
+          placeholder="Email"
+          autoFocus
+          type="email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <Input
+          placeholder="Password"
+          secureTextEntry
+          type="password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          onSubmitEditing={signInUser}
+        />
       </View>
 
-      <Button disabled={!email || !password} containerStyle={styles.button} title="Login" onPress={signInUser} />
-      <Button containerStyle={styles.button} title="Register" type="outline" onPress={() => navigation.navigate('Register')} />
+      <Button
+        disabled={!email || !password}
+        containerStyle={styles.button}
+        title="Login"
+        onPress={signInUser}
+      />
+      <Button
+        containerStyle={styles.button}
+        title="Register"
+        type="outline"
+        onPress={() => navigation.navigate('Register')}
+      />
       <View style={{ height: 100 }} />
     </KeyboardAvoidingView>
   );
