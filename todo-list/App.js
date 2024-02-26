@@ -1,16 +1,25 @@
 // import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native';
-import Task from './components/Task';
+import React, { useState } from "react";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Task from "./components/Task";
 
 export default function App() {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState("");
   const [taskItems, setTaskItems] = useState([]);
 
   const handleAddTask = () => {
     Keyboard.dismiss();
     setTaskItems([...taskItems, task]);
-    setTask(null);
+    setTask("");
   };
 
   const completeTask = (index) => {
@@ -37,10 +46,15 @@ export default function App() {
 
       {/* Write a task */}
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.writeTaskWrapper}>
-        <TextInput style={styles.input} placeholder={'Write a task'}
-          value={task} onChangeText={(text) => setTask(text)}/>
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.writeTaskWrapper}
+      >
+        <TextInput
+          style={styles.input}
+          placeholder={"Write a task"}
+          value={task}
+          onChangeText={(text) => setTask(text)}
+        />
 
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
@@ -55,7 +69,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EBEAED',
+    backgroundColor: "#EBEAED",
   },
   taskWrapper: {
     paddingTop: 80,
@@ -63,42 +77,42 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
   },
   items: {
     marginTop: 30,
   },
   writeTaskWrapper: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 60,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
   },
   input: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     borderRadius: 60,
-    borderColor: '#C0C0C0',
+    borderColor: "#C0C0C0",
     borderWidth: 1,
     width: 250,
   },
   addWrapper: {
     width: 60,
     height: 60,
-    backgroundColor: '#000000',
+    backgroundColor: "#000000",
     borderRadius: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#C0C0C0',
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#C0C0C0",
     borderWidth: 1,
   },
   addText: {
-    color: '#FFA500',
+    color: "#FFA500",
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
